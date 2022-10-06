@@ -2,8 +2,11 @@
 command used to run helm chart from container
 
 ```
+git clone https://github.com/bitnami/charts.git
+cd charts/bitnami/nginx
 helm repo add my-repo https://charts.bitnami.com/bitnami
-helm install my-release my-repo/nginx --namespace targetns
+helm dependency build
+helm install nginxchart . --namespace targetns
 ``` 
 (Target ns was created manually before installing the chart)
 
