@@ -1,7 +1,11 @@
 # sample-helm
 command used to run helm chart from container
 
-```helm install chartname .  --namespace target-ns-name``` (Target ns was created manually before installing the chart)
+```
+helm repo add my-repo https://charts.bitnami.com/bitnami
+helm install my-release my-repo/nginx --namespace targetns
+``` 
+(Target ns was created manually before installing the chart)
 
 
 **Role permissions**
