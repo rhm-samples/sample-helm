@@ -1,10 +1,12 @@
 # sample-helm
 command used to run helm chart from container
-helm install <chartname> .  --namespace <target-ns-name> (Target ns was created manually before installing the chart)
+
+```helm install chartname .  --namespace target-ns-name``` (Target ns was created manually before installing the chart)
 
 
+**Role permissions**
 
-Role permissions  
+```
     - apiGroups: [""]
       resources: ["pods"]
       verbs: ["list", "get", "watch", "create", "delete"]
@@ -22,4 +24,5 @@ Role permissions
       verbs: ["list", "get", "create", "delete", "update"]      
     - apiGroups: [""]
       resources: ["configmaps"]
-      verbs: ["list", "get", "create", "delete", "update"]  
+      verbs: ["list", "get", "create", "delete", "update"]
+```
