@@ -7,22 +7,75 @@ command used to run helm chart from container
 **Role permissions**
 
 ```
-    - apiGroups: [""]
-      resources: ["pods"]
-      verbs: ["list", "get", "watch", "create", "delete"]
-    - apiGroups: [""]
-      resources: ["pods/exec"]
-      verbs: ["create"]
-    - apiGroups: [""]
-      resources: ["pods/log"]
-      verbs: ["get"]
-    - apiGroups: [""]
-      resources: ["pods/attach"]
-      verbs: ["list", "get", "create", "delete", "update"]
-    - apiGroups: [""]
-      resources: ["secrets"]
-      verbs: ["list", "get", "create", "delete", "update"]      
-    - apiGroups: [""]
-      resources: ["configmaps"]
-      verbs: ["list", "get", "create", "delete", "update"]
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: helmrole
+  namespace: demo
+rules:
+  - verbs:
+      - list
+      - get
+      - watch
+      - create
+      - delete
+    apiGroups:
+      - ''
+    resources:
+      - pods
+  - verbs:
+      - create
+    apiGroups:
+      - ''
+    resources:
+      - pods/exec
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - pods/log
+  - verbs:
+      - list
+      - get
+      - create
+      - delete
+      - update
+    apiGroups:
+      - ''
+    resources:
+      - pods/attach
+  - verbs:
+      - list
+      - get
+      - create
+      - delete
+      - update
+    apiGroups:
+      - ''
+    resources:
+      - secrets
+  - verbs:
+      - list
+      - get
+      - create
+      - delete
+      - update
+    apiGroups:
+      - ''
+    resources:
+      - services
+  - verbs:
+      - list
+      - get
+      - watch
+      - create
+      - delete
+      - update
+      - patch
+    apiGroups:
+      - '*'
+    resources:
+      - deployments
+
 ```
