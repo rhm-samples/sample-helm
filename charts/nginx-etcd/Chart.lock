@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: file://../common/
+  version: 2.0.3
+- name: etcd
+  repository: file://../etcd/
+  version: 8.5.5
+digest: sha256:b37a716f7b0f712a3aa25e997e5894dc48b1f51223acb2d334eeecdfdd3f5d49
+generated: "2022-10-07T03:06:19.556470525-05:00"
